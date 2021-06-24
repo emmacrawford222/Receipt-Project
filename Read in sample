@@ -1,0 +1,11 @@
+import PyPDF2
+from PyPDF2 import PdfFileReader
+
+reader = PyPDF2.PdfFileReader("/Users/emmacrawford/Downloads/deliveroo-order-receipt.pdf")
+
+my_receipt = reader.getPage(0).extractText()
+my_receipt
+
+import re
+contents = re.split(r"£.......", my_receipt)
+print(*contents,sep='\n')
